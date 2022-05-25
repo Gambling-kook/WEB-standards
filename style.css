@@ -1,0 +1,507 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/*  Reset CSS  */
+/* 웹 브라우저마다 default 값이 자동으로 되있어서 백지로 초기화 하는 작업 
+기본) a | button | textarea | input | ul | ol | li 등을 수정한다. 그외 추가!
+*/
+a {
+  color: inherit;
+  /* inherit 부모 태그에 대해 상속 */
+  text-decoration: none;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #2B292D;
+}
+
+/* form태그는 body태그에 font-famliy가 먹히지 않는다. */
+button,
+textarea,
+input {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+}
+
+button:focus,
+button:active,
+textarea:focus,
+textarea:active,
+input:focus,
+input:active {
+  outline: none;
+  box-shadow: none;
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* 여러 Section 재사용 할 fill-button */
+.fill-button {
+  display:inline-flex;
+  width: 140px;
+  height: 48px;
+  color: #FFFFFF;
+  background-color: #3040C4;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: -0.05em;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 2px;
+  transition: opacity 300ms ease-in-out;
+}
+
+.fill-button.inverted {
+  color: #3040C4;
+  background-color: #FFFFFF;
+}
+
+.fill-button:hover {
+  opacity: 0.5;
+}
+
+/* Section Class Module : section 관한 공통된 것(재사용)  */
+.section {
+  padding: 80px 0;  /* Grid System : conteiner , row , col 과 상관 없다. */
+}
+
+.section-category {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.section-title {
+  margin-bottom: 24px;
+  color: #2B292D;
+  font-size: 34px;
+  line-height: 1.058823529411765;
+  letter-spacing: -0.03em;
+}
+
+ /* 
+ .section-desc {
+
+}
+ */
+
+/* Landing */
+.landing {
+  background-color: #FDDED8;
+  text-align: center;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center;  → flex-direction: row 일 경우만 사용*/
+  width: 100%;
+  height: 100vh;
+}
+
+.landing-title {
+  color: #2B292D;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.05em;  /* 5% */
+  margin-bottom: 24px;
+}
+
+.landing-desc {
+  margin-bottom: 24px;
+}
+
+/* 랜딩 안에 있는 버튼 그륩 → 재사용을 위해 명확성 높임 */
+.landing .button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing .button-group .fill-button:first-child {
+  margin-right: 8px;
+}
+
+/* Service */
+.service {
+  padding: 80px 0;
+  background-color: #F4F5F7;
+}
+
+.service-title {
+  color: #2B292D;
+  font-size: 22px;
+  line-height: 1.363636363636364;
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+  /* strong , heading Element(h1 ~ h6 default of font-weight : 700(bold) */
+}
+
+.service .col-12:first-child {
+  margin-bottom: 40px;
+}
+
+/* Program */
+.program .row:first-child {
+  margin-bottom: 32px;
+}
+
+.program .col-md-4 {
+  margin-bottom: 20px;
+}
+
+.program .col-md-4:last-child {
+  margin-bottom: 0;
+}
+
+.program .section-category {
+  color: #009B4D;
+}
+
+.program-card {
+  display: block;
+  padding: 24px 0 32px;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05), inset 0px 1px 0px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: background-color 300ms ease-in-out, box-shadow 300ms ease-in-out;
+}
+
+.program-card:hover {
+  background-color: #3141C5;
+  box-shadow: 0px 13px 18px rgba(0, 0, 0, 0.15), 0px 11px 55px rgba(0, 0, 0, 0.07);
+}
+
+.program-card:hover strong {
+  color: #FFFFFF;
+}
+
+.program-card img {
+  margin: 0 auto 16px;
+  display: block;
+  width: auto;
+  height: 195px;
+}
+
+.program-card strong {
+  font-size: 18px;
+  line-height: 1.333333333333333;
+  letter-spacing: -0.02em;
+  transition: color 300ms ease-in-out;
+}
+
+/* Curriculum */
+.curriculum .row:first-child {
+  margin-bottom: 48px;
+}
+
+.curriculum .row:last-child .col-12:first-child {
+  margin-bottom: 40px;
+  /* curriculum-detail-desc가 아닌 .col-12에 주는건 불필요한 margin 값 X */
+}
+
+.curriculum .section-category {
+  color: #0189D1;
+}
+
+.curriculum .section-desc {
+  margin-bottom: 32px;
+}
+
+.curriculum-image {
+  display: none;
+}
+
+.curriculum-detail-desc {
+  color: #2B292D;
+  font-size: 15px;
+  line-height: 1.466666666666667;
+  letter-spacing: -0.01em;
+}
+
+/* Subscription */
+.subscription {
+  padding: 40px 0;
+  text-align: center;
+  background-color: #F2F8FA;
+}
+
+.subscription-image {
+  padding: 25px 0;
+}
+
+.subscription-image img {
+  display: block;
+  width: auto;
+  height: 190px;
+  margin: 0 auto;
+}
+
+.subscription-title {
+  margin-bottom: 16px;
+  color: #2B292D;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.subscription-desc {
+  margin-bottom: 24px;
+}
+
+.subscription .input-group {
+  margin-bottom: 8px;
+}
+
+.subscription .input-group input {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 2px;
+  padding: 0 16px;
+  background-color: #FFFFFF;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.subscription .input-group .fill-button {
+  width: 100%;
+}
+
+.subscription-form .subscription-form-desc {
+  font-size: 13px;
+  line-height: 1.538461538461538;
+  letter-spacing: 0;
+  color: #7B7B7E;
+}
+
+.subscription-form .subscription-form-desc a {
+  color: #3040C4;
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  padding: 24px 0;
+}
+
+.footer-link {
+  margin-bottom: 8px;
+}
+
+.footer-link:last-child {
+  margin-bottom: 0px;
+}
+
+.footer-link a {
+  font-size: 14px;
+  line-height: 1.714285714285714;
+  letter-spacing: -0.01em;
+  color: #807F81;
+}
+
+@media screen and (min-width: 768px) {
+    /* Reset CSS */
+    p {
+      font-size: 22px;
+      line-height: 1.454545454545455;
+    }
+
+    /* Randing-DeskTop */
+  .landing-content {
+    height: auto; /* 자신의 자식 Height 값의 합 */
+    padding: 120px 0;
+  }
+  
+  .landing-title {
+    margin-bottom: 32px;
+    font-size: 70px;
+    line-height: 1.028571428571429;
+  }
+  
+  .landing-desc {
+    margin-bottom: 32px;
+  }
+  
+  .landing .button-group .fill-button:first-child {
+    margin-right: 16px;
+  }
+  
+  .fill-button {
+    width: 160px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 1.555555555555556;
+  }
+  /* Section Class Module-DeskTop */
+  .section {
+    padding-bottom: 96px;
+  }
+
+  .section-category {
+    margin-bottom: 16px;
+    font-size: 22px;
+    line-height: 1.090909090909091;
+  }
+
+  .section-title {
+    margin-bottom: 32px;
+    font-size: 56px;
+    line-height: 1;
+  }
+
+  /* 
+  .section-desc {
+
+  } 
+  */
+
+  /* Service-DeskTop */
+ .service-title {
+  font-size: 26px;
+  line-height: 1.307692307692308;
+  }
+
+  .service .col-12:first-child {
+    margin-bottom: 0;
+  }  
+
+  /* Program-DeskTop */
+  .program {
+    text-align: center;
+  }
+  .program .row:first-child {
+    margin-bottom: 72px;
+  }
+  .program-card img {
+    margin-bottom: 24px;
+  }
+
+  .program-card strong {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  /* Curriculum-DeskTop */
+  .curriculum .row:first-child {
+    margin-bottom: 36px;
+  }
+
+  .curriculum .row:last-child .col-12:first-child {
+    margin-bottom: 0;
+  }
+
+  .curriculum .section-desc {
+    margin-bottom: 72px;
+  }
+
+  .curriculum-detail-desc {
+    font-size: 18px;
+    line-height: 1.444444444444444;
+  }
+
+  .curriculum-image {
+    display: block;
+  }
+
+  .curriculum-image img {
+    display: block;
+    width: 100%;
+    max-width: 425px;
+    height: auto;
+  }
+
+  /* Subscription-DeskTop */
+  .subscription {
+    padding: 80px 0;
+    text-align: left;
+  }
+
+  .subscription-image {
+    padding: 8px 0;
+  }
+
+  .subscription-image img {
+    height: 285px;
+    margin-left: 0;
+  }
+
+  .subscription-title {
+    font-size: 40px;
+  }
+
+  .subscription .input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  .subscription .input-group input {
+    margin-bottom: 0;
+    margin-right: 8px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 1.333333333333333;
+  }
+
+  .subscription .input-group .fill-button {
+    flex-shrink: 0;
+    width: 160px;
+  }
+
+  .subscription-form .subscription-form-desc {
+    font-size: 14px;
+    line-height: 1.714285714285714;
+  }
+
+  /* Footer-DeskTop */
+  .footer {
+    padding: 16px 0;
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-link {
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+
+  .footer-link:last-child {
+    margin-right: 0;
+  }
+}
+
+/* Custom Grid Sytem - Fix container width */
+/* 간략하고 명시적으로 주석 작성 (그리드 시스템 중 컨테이너 가로를 자유롭게 수정) */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 960px !important;
+    /* 고정값 */
+  }
+}
+
